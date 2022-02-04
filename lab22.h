@@ -89,6 +89,20 @@ int Unit::attack(Unit &target){
 	return target.beAttacked(atk);
 }
 
+int Unit::heal(){
+int heal = rand()%21+10;
+    if(hp == hpmax){
+        heal = 0;
+        return heal;
+    }else if((hp + heal)>= hpmax){
+        heal = hpmax - hp;
+        hp = hpmax;
+        return heal;
+    }else{
+        hp = hp + heal;
+        return heal;
+        }
+}
 
 
 void drawScene(char p_action,int p,char m_action,int m){
